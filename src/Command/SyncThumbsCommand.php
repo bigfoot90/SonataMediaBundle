@@ -81,7 +81,7 @@ final class SyncThumbsCommand extends Command
                 $batchOffset = $startOffset + ($batchCounter - 1) * $batchSize;
                 $medias = $this->mediaManager->findBy(
                     [
-                        'providerName' => $provider->getName(),
+                        'providerName' => str_replace('sonata.media.provider.', '', $provider->getName()),
                         'context' => $context,
                     ],
                     [
