@@ -19,12 +19,11 @@ abstract class BaseMedia extends Media
 {
     public function prePersist(): void
     {
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
+        $this->createdAt = $this->updatedAt = new \DateTimeImmutable();
     }
 
     public function preUpdate(): void
     {
-        $this->updatedAt = new \DateTime();
+        $this->updatedAt = new \DateTimeImmutable();
     }
 }
